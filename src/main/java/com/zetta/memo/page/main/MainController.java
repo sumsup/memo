@@ -5,9 +5,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MainController {
+    private MainService mainService;
+
+    MainController() {
+        MainService mainService = new MainService();
+        this.mainService = mainService;
+    }
 
     @GetMapping("/hello")
     public String getHello(String name) {
-        return name + "님? hello world!!";
+        return mainService.getSomething();
     }
 }
