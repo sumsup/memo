@@ -12,7 +12,7 @@ public class MemoController {
     private MemoService memoService;
 
     @GetMapping("/memo")
-    public List<MemoDTO> getHello(String name) {
+    public List<MemoDTO> searchMemos() {
         return memoService.getMemos();
     }
 }
