@@ -5,7 +5,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/memo")
+@RestController
+@RequestMapping("/memo")
 public class MemoController {
     @Autowired
     private MemoService memoService;
@@ -16,8 +17,8 @@ public class MemoController {
     }
 
     @PostMapping("/register")
-    public boolean insertMemo(MemoDTO memoDTO) {
-        return true;
+    public boolean insertMemo(@RequestBody MemoDTO memoDTO) {
+        return memoService.insertMemo(memoDTO);
     }
 
     @PutMapping("/update")

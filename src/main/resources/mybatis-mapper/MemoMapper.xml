@@ -5,8 +5,33 @@
 <mapper namespace="com.zetta.memo.page.main.MemoMapper">
 
     <select id="selectMemo" resultType="MemoDTO">
-        select memo from memo
+        select
+            writer_id
+            , memo
+            , category
+            , created_at as 'createAt'
+            , updated_at as 'updateAt'
+        from memo
+            order by id desc
     </select>
+
+    <insert id="insertMemo">
+        insert into memo
+            (
+                writer_id
+                , memo
+                , category
+                , updated_at
+            )
+            values
+            (
+                #{writerId}
+                , #{memo}
+                , #{category}
+                , #{updateAt}
+            )
+    </insert>
+
 
 
 </mapper>

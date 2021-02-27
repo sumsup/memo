@@ -20,7 +20,7 @@ public class MemoServiceTest {
     public void searchMemoTest() {
         List<MemoDTO> memoList = memoMapper.selectMemo();
 
-        System.out.println("memoList : " + memoList.toString());
+        log.info("memoList : " + memoList.toString());
     }
 
 }

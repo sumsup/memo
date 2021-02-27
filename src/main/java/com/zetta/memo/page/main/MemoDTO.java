@@ -2,7 +2,7 @@ package com.zetta.memo.page.main;
 
 import lombok.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -12,6 +12,7 @@ public class MemoDTO {
     private int writerId;
     private String memo;
     private String category;
-    private LocalDate updateAt;
+    private LocalDateTime createAt;
+    private LocalDateTime updateAt;
 }
 

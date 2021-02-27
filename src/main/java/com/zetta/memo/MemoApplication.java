@@ -6,10 +6,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
 
-@MapperScan(basePackageClasses = MemoApplication.class)
+@MapperScan(basePackages = {"com.zetta.memo.page.*"})
 @SpringBootApplication
 public class MemoApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(MemoApplication.class, args);
 	}

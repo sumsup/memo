@@ -7,5 +7,5 @@ import java.util.List;
 @Mapper
 public interface MemoMapper {
     List<MemoDTO> selectMemo();
-    boolean insertMemo();
+    boolean insertMemo(MemoDTO memoDTO);
 }
