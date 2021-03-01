@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zetta.memo.page.category.CategoryMapper">
+    <select id="getCategories" resultType="com.zetta.memo.page.category.CategoryDTO">
+        select * from category
+    </select>
+
+    <insert id="register">
+        insert into
+            category
+            (
+            writer_id
+            , category
+            , created_at
+            )
+            values
+            (
+            #{writerId}
+            , #{category}
+            , #{createdAt}
+            )
+    </insert>
+
+    <update id="update">
+        update category
+            set
+                writer_id = #{writerId}
+                , category = #{category}
+            where
+                id = #{id}
+    </update>
+
+    <delete id="delete">
+        delete from
+            category
+            where
+                id = #{id}
+    </delete>
+
+</mapper>

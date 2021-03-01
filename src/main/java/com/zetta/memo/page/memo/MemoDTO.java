@@ -1,4 +1,4 @@
-package com.zetta.memo.page.main;
+package com.zetta.memo.page.memo;
 
 import lombok.*;
 
@@ -7,8 +7,8 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
 public class MemoDTO {
+    private long id;
     private int writerId;
     private String memo;
     private String category;

@@ -1,6 +1,6 @@
-package com.zetta.memo.page.main;
+package com.zetta.memo.page.memo;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +21,13 @@ public class MemoServiceTest {
         List<MemoDTO> memoList = memoMapper.selectMemo();
 
         log.info("memoList : " + memoList.toString());
+    }
+
+    @Test
+    public void deleteMemoTest() {
+        boolean isSuccess = memoMapper.deleteMemo(51);
+
+        log.info("delete success ? => " + isSuccess);
     }
 
 }

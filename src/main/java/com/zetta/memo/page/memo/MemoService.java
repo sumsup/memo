@@ -1,4 +1,4 @@
-package com.zetta.memo.page.main;
+package com.zetta.memo.page.memo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,5 +18,14 @@ public class MemoService {
     public boolean insertMemo(MemoDTO memoDTO) {
         memoDTO.setUpdateAt(LocalDateTime.now());
         return memoMapper.insertMemo(memoDTO);
+    }
+
+    public boolean updateMemo(MemoDTO memoDTO) {
+        memoDTO.setUpdateAt(LocalDateTime.now());
+        return memoMapper.updateMemo(memoDTO);
+    }
+
+    public boolean deleteMemo(long id) {
+        return memoMapper.deleteMemo(id);
     }
 }

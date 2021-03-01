@@ -1,4 +1,4 @@
-package com.zetta.memo.page.main;
+package com.zetta.memo.page.memo;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -8,4 +8,6 @@ import java.util.List;
 public interface MemoMapper {
     List<MemoDTO> selectMemo();
     boolean insertMemo(MemoDTO memoDTO);
+    boolean updateMemo(MemoDTO memoDTO);
+    boolean deleteMemo(long id);
 }

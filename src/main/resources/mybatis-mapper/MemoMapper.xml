@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.zetta.memo.page.main.MemoMapper">
+<mapper namespace="com.zetta.memo.page.memo.MemoMapper">
 
-    <select id="selectMemo" resultType="MemoDTO">
+    <select id="selectMemo" resultType="com.zetta.memo.page.memo.MemoDTO">
         select
             writer_id
             , memo
@@ -18,20 +18,37 @@
     <insert id="insertMemo">
         insert into memo
             (
-                writer_id
+                id
+                , writer_id
                 , memo
                 , category
                 , updated_at
             )
             values
             (
-                #{writerId}
+                #{id}
+                , #{writerId}
                 , #{memo}
                 , #{category}
                 , #{updateAt}
             )
     </insert>
 
+    <update id="updateMemo">
+        update memo
+            set
+                memo = #{memo}
+                , category = #{category}
+                , updated_at = #{updateAt}
+            where
+                id = #{id}
+    </update>
 
+    <delete id="deleteMemo">
+        delete
+            from memo
+        where
+            id = #{id}
+    </delete>
 
 </mapper>
