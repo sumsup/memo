@@ -11,7 +11,6 @@ public class CategoryService {
     @Autowired
     private CategoryMapper categoryMapper;
 
-
     public List<CategoryDTO> getCategories() {
         return categoryMapper.getCategories();
     }
