@@ -34,7 +34,7 @@ dependencies {
 	implementation 'junit:junit:4.12'
 	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
-	testCompile group: 'com.h2database', name: 'h2', version: '1.4.200'
+	testImplementation group: 'com.h2database', name: 'h2', version: '1.4.200'
 }
 
 test {

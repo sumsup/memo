@@ -12,6 +12,7 @@ public class MemoController {
     private MemoService memoService;
 
     @GetMapping("/search")
+    @ResponseBody
     public List<MemoDTO> searchMemos() {
         return memoService.getMemos();
     }
