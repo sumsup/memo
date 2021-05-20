@@ -1,0 +1,25 @@
+/*
+    TODO : 요소 가운데 정렬하기.
+
+*/
+div.memo_div {
+    padding: 10px;
+    border: 1px solid purple;
+    display: inline-block;
+    width: 30%;
+    height: 220px;
+}
+div#output_memos {
+    width: 1080px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 555px) {
+    div#output_memos {
+        width: 450px;
+        margin: 0 auto;
+    }
+    div.memo_div {
+        width: 90%;
+    }
+}
