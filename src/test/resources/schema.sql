@@ -9,7 +9,12 @@ CREATE TABLE `writer` (
                           PRIMARY KEY (`id`),
                           UNIQUE KEY `email_UNIQUE` (`email`),
                           UNIQUE KEY `nickname_UNIQUE` (`nickname`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='회원 테이블.';
+)
+-- ENGINE=InnoDB
+-- AUTO_INCREMENT=16
+-- DEFAULT CHARSET=utf8
+-- COMMENT='회원 테이블.'
+;
 
 CREATE TABLE `memo` (
                         `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '아이디',
@@ -19,9 +24,14 @@ CREATE TABLE `memo` (
                         `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '작성일',
                         `updated_at` datetime DEFAULT NULL COMMENT '수정일',
                         PRIMARY KEY (`id`),
-                        KEY `writer_id_fk_idx` (`writer_id`),
+--                         KEY `writer_id_fk_idx` (`writer_id`),
                         CONSTRAINT `memo_writer_id_fk` FOREIGN KEY (`writer_id`) REFERENCES `writer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 COMMENT='메모 테이블.';
+)
+-- ENGINE=InnoDB
+-- AUTO_INCREMENT=45
+-- DEFAULT CHARSET=utf8
+-- COMMENT='메모 테이블.'
+;
 
 CREATE TABLE `category` (
                             `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -29,9 +39,14 @@ CREATE TABLE `category` (
                             `category` varchar(20) DEFAULT NULL,
                             `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
                             PRIMARY KEY (`id`),
-                            KEY `writer_id_fk_idx` (`writer_id`),
+--                             KEY `writer_id_fk_idx` (`writer_id`),
                             CONSTRAINT `writer_id_fk` FOREIGN KEY (`writer_id`) REFERENCES `writer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='카테고리';
+)
+-- ENGINE=InnoDB
+-- AUTO_INCREMENT=20
+-- DEFAULT CHARSET=utf8
+-- COMMENT='카테고리'
+;
 
 
 

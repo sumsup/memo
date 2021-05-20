@@ -10,6 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+// TODO : 테스트 not found. build fail 문제 해결.
+// TODO : 테스트에서 H2 schema 사용하도록 설정.
+// TODO : 테스트 환경에서 h2-console 띄우기.
+
 @Slf4j
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
