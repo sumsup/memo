@@ -9,8 +9,8 @@
             writer_id
             , memo
             , category
-            , created_at as 'createAt'
-            , updated_at as 'updateAt'
+            , created_at
+            , updated_at
         from memo
             order by id desc
     </select>
