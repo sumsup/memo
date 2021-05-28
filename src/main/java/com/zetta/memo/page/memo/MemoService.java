@@ -16,7 +16,6 @@ public class MemoService {
     }
 
     public boolean insertMemo(MemoDTO memoDTO) {
-        memoDTO.setUpdatedAt(LocalDateTime.now());
         return memoMapper.insertMemo(memoDTO);
     }
 

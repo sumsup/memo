@@ -17,7 +17,7 @@ CREATE TABLE `memo` (
             `memo` text NOT NULL COMMENT '메모 내용',
             `category` varchar(20) DEFAULT NULL COMMENT '카테고리',
             `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '작성일',
-            `updated_at` datetime DEFAULT NULL COMMENT '수정일',
+            `updated_at` datetime NULL DEFAULT CURRENT_TIMESTAMP COMMENT '수정일',
             PRIMARY KEY (`id`),
             CONSTRAINT `memo_writer_id_fk` FOREIGN KEY (`writer_id`) REFERENCES `writer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 );

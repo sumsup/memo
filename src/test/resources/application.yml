@@ -7,7 +7,7 @@ spring:
     password: 1234
     connection-test-query: SELECT !!!123!!!
     schema: classpath:/data/schema.sql
-    type: com.zaxxer.hikari.HikariDataSource
+    data: classpath:data/data.sql
   h2:
     console:
       enabled: true

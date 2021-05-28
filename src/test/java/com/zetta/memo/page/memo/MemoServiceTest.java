@@ -1,29 +1,35 @@
 package com.zetta.memo.page.memo;
 
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 // TODO : 리얼 환경에서 테스트 스키마 h2-console 띄우기.
 
-@Slf4j
+//@ExtendWith(SpringExtension.class)
 @SpringBootTest
-@ExtendWith(SpringExtension.class)
 @AutoConfigureTestDatabase
 public class MemoServiceTest {
     @Autowired
     private MemoMapper memoMapper;
 
+    private static final Logger log = LoggerFactory.getLogger(MemoServiceTest.class);
+
     @Test
     public void searchMemoTest() {
+
         List<MemoDTO> memoList = memoMapper.selectMemo();
+
+        assertNotNull(memoList);
 
         log.info("memoList : " + memoList.toString());
     }
@@ -31,7 +37,10 @@ public class MemoServiceTest {
     @Test
     @Transactional
     public void deleteMemoTest() {
-        boolean isSuccess = memoMapper.deleteMemo(51);
+        List<MemoDTO> memoList = memoMapper.selectMemo();
+
+        assertFalse(memoList.isEmpty());
+        boolean isSuccess = memoMapper.deleteMemo(memoList.get(0).getId());
 
         log.info("delete success ? => " + isSuccess);
     }
