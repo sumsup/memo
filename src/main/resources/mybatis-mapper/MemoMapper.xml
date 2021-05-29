@@ -12,6 +12,9 @@
             , created_at
             , updated_at
         from memo
+        <if test="memo != null">
+            where memo like concat('%', #{memo} ,'%')
+        </if>
     </select>
 
     <insert id="insertMemo">

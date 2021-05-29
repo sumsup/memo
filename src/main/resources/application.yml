@@ -1,17 +1,21 @@
 spring:
-  devtools:
-    livereload:
-      enabled: true
+  # Database connection setting.
   datasource:
-    url: jdbc:mysql://localhost:3306/map?autoReconnect=true
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mysql://localhost:3306/map?autoReconnect=true
     username: root
     password: mysql
     hikari:
       maximum-pool-size: 4
-  h2:
-    console:
+  # Spring static resource hot reload.
+  devtools:
+    livereload:
       enabled: true
-      path: /h2-console
+
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console
 
 #spring:
 #  h2:
@@ -42,10 +46,9 @@ mybatis:
   # 패키지 명을 생략할 수 있도록 alias 설정.
   type-aliases-package: com.zetta.memo.page.memo
 
-# mapper 로그 레벨 설정.
-logging:
-  level:
-    com:
-      zetta:
-        memo:
-          repository: TRACE
+# log level config.
+#logging:
+#  level:
+#    jdbc.sqlonly: DEBUG
+#    org.springframework.web: ERROR
+#    com.zaxxer.hikari.HikariDataSource: ERROR

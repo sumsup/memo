@@ -13,8 +13,8 @@ public class MemoController {
 
     @GetMapping("/search")
     @ResponseBody
-    public List<MemoDTO> searchMemos() {
-        return memoService.getMemos();
+    public List<MemoDTO> searchMemos(@RequestBody  MemoDTO.Search search) {
+        return memoService.getMemos(search);
     }
 
     @PostMapping("/register")

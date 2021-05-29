@@ -5,7 +5,7 @@ spring:
     url: jdbc:h2:mem:userdb;MODE=MYSQL;DB_CLOSE_DELAY=-1;
     username: kim
     password: 1234
-    connection-test-query: SELECT !!!123!!!
+    connection-test-query: SELECT !!!123!!! from dual
     schema: classpath:/data/schema.sql
     data: classpath:data/data.sql
   h2:
@@ -30,10 +30,9 @@ mybatis:
   type-aliases-package: com.zetta.memo.page.memo
 
 # mapper 로그 레벨 설정.
-logging:
-  level:
-    com:
-      zetta:
-        memo:
-          repository: TRACE
-
+#logging:
+#  level:
+#    com:
+#      zetta:
+#        memo:
+#          repository: TRACE

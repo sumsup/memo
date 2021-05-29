@@ -14,5 +14,11 @@ public class MemoDTO {
     private String category;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private Search search;
+
+    @Data
+    public static class Search {
+        private String memo;
+    }
 }
 

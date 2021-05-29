@@ -25,6 +25,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
 
+	/** for MyBatis Log Beautifier. using log4jdbc */
+	implementation('org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16')
+
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'mysql:mysql-connector-java'
@@ -37,8 +40,13 @@ dependencies {
 	implementation 'junit:junit:4.12'
 	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+
+	/** test dependency */
 	testImplementation group: 'com.h2database', name: 'h2', version: '1.4.200'
 	testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.26.0'
+
+	/** coloring log-back */
+	compile 'org.fusesource.jansi:jansi:1.16'
 }
 
 test {

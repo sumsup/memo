@@ -11,8 +11,8 @@ public class MemoService {
     @Autowired
     private MemoMapper memoMapper;
 
-    public List<MemoDTO> getMemos() {
-        return memoMapper.selectMemo();
+    public List<MemoDTO> getMemos(MemoDTO.Search search) {
+        return memoMapper.selectMemo(search);
     }
 
     public boolean insertMemo(MemoDTO memoDTO) {
