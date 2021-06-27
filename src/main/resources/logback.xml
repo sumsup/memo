@@ -12,7 +12,7 @@
     <logger name="jdbc" level="OFF"/>
     <logger name="jdbc.connection" level="OFF"/>
     <logger name="jdbc.sqlonly" level="OFF"/>  <!-- 파라미터를 셋팅해서 출력-->
-    <logger name="jdbc.sqltiming" level="INFO"/>  <!--쿼리 실행 속도 표시-->
+    <logger name="jdbc.sqltiming" level="DEBUG"/>  <!--쿼리 실행 속도 표시-->
     <logger name="jdbc.resultsettable" level="OFF"/>  <!-- 결과값을 보여줌-->
     <logger name="log4jdbc.debug" level="OFF"/>
     <logger name="jdbc.audit" level="OFF"/>

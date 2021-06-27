@@ -14,12 +14,16 @@ div#output_memos {
     margin: 0 auto;
 }
 
-@media screen and (max-width: 555px) {
-    div#output_memos {
-        width: 450px;
-        margin: 0 auto;
-    }
-    div.memo_div {
-        width: 90%;
-    }
+div.memo-item {
+
 }
+
+/*@media screen and (max-width: 555px) {*/
+/*    div#output_memos {*/
+/*        width: 450px;*/
+/*        margin: 0 auto;*/
+/*    }*/
+/*    div.memo_div {*/
+/*        width: 90%;*/
+/*    }*/
+/*}*/

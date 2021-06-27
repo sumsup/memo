@@ -1,5 +1,5 @@
 window.onload = function () {
-    var memos;
+    let memos;
     searchMemos();
 
     function searchMemos() {
@@ -12,14 +12,16 @@ window.onload = function () {
                     outputMemos(memos);
 
                 } else {
-                    console.error(xhr.responseText);
+                    console.error("error stack trace : ", xhr.response);
 
                 }
             }
         };
+
         xhr.responseType = 'json';
-        xhr.open("GET", "http://localhost:8080/memo/search");
-        xhr.send();
+        xhr.open("POST", "http://localhost:8080/memo/search");
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({}));
     }
 
     function outputMemos(memos) {
@@ -29,7 +31,5 @@ window.onload = function () {
             elem.insertAdjacentHTML('afterbegin', memo);
         }
     }
-
-
 
 }

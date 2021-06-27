@@ -11,9 +11,9 @@ public class MemoController {
     @Autowired
     private MemoService memoService;
 
-    @GetMapping("/search")
+    @PostMapping("/search")
     @ResponseBody
-    public List<MemoDTO> searchMemos(@RequestBody  MemoDTO.Search search) {
+    public List<MemoDTO> searchMemos(@RequestBody MemoDTO.Search search) {
         return memoService.getMemos(search);
     }
 
