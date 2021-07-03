@@ -9,10 +9,12 @@
             writer_id
             , memo
             , category
-            , created_at as 'createAt'
-            , updated_at as 'updateAt'
+            , created_at
+            , updated_at
         from memo
-            order by id desc
+        <if test="memo != null">
+            where memo like concat('%', #{memo} ,'%')
+        </if>
     </select>
 
     <insert id="insertMemo">
@@ -22,7 +24,6 @@
                 , writer_id
                 , memo
                 , category
-                , updated_at
             )
             values
             (
@@ -30,7 +31,6 @@
                 , #{writerId}
                 , #{memo}
                 , #{category}
-                , #{updateAt}
             )
     </insert>
 

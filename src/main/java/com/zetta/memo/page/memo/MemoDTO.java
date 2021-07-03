@@ -12,7 +12,13 @@ public class MemoDTO {
     private int writerId;
     private String memo;
     private String category;
-    private LocalDateTime createAt;
-    private LocalDateTime updateAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+    private Search search;
+
+    @Data
+    public static class Search {
+        private String memo;
+    }
 }
 

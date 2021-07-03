@@ -1,0 +1,38 @@
+# H2-Database
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:userdb;MODE=MYSQL;DB_CLOSE_DELAY=-1;
+    username: kim
+    password: 1234
+    connection-test-query: SELECT !!!123!!! from dual
+    schema: classpath:/data/schema.sql
+    data: classpath:data/data.sql
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+# MyBatis
+mybatis:
+  # mapper.xml 위치 지정.
+  mapper-locations: mybatis-mapper/**/*.xml
+
+  # model 프로퍼티 camel case 설정.
+  configuration:
+    map-underscore-to-camel-case: true
+
+    # MyBatis update시 null 처리. (cache-enabeld = false , jdbc-type-for-null = null) => null 값을 넣는 것을 허용.
+    # cache-enabled: false
+    # jdbc-type-for-null: null
+
+  # 패키지 명을 생략할 수 있도록 alias 설정.
+  type-aliases-package: com.zetta.memo.page.memo
+
+# mapper 로그 레벨 설정.
+#logging:
+#  level:
+#    com:
+#      zetta:
+#        memo:
+#          repository: TRACE

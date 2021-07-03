@@ -1,12 +1,34 @@
 spring:
+  # Database connection setting.
   datasource:
-    url: jdbc:mysql://localhost:3306/map?autoReconnect=true
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mysql://localhost:3306/map?autoReconnect=true
     username: root
     password: mysql
     hikari:
       maximum-pool-size: 4
-  profiles:
-    active: local
+  # Spring static resource hot reload.
+  devtools:
+    livereload:
+      enabled: true
+
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console
+
+#spring:
+#  h2:
+#    console:
+#      enabled: true
+#  profiles:
+#    active: local
+#  datasource:
+#    hikari:
+#      jdbc-url: jdbc:h2:mem:userdb;DB_CLOSE_DELAY=-1
+#      driver-class-name: org.h2.Driver
+#      username: root
+#      password: mysql
 
 # MyBatis
 mybatis:
@@ -24,22 +46,22 @@ mybatis:
   # 패키지 명을 생략할 수 있도록 alias 설정.
   type-aliases-package: com.zetta.memo.page.memo
 
-# mapper 로그 레벨 설정.
-logging:
-  level:
-    com:
-      zetta:
-        memo:
-          repository: TRACE
+# log level config.
+#logging:
+#  level:
+#    jdbc.sqlonly: DEBUG
+#    org.springframework.web: ERROR
+#    com.zaxxer.hikari.HikariDataSource: ERROR
 
----
-spring:
-  profiles:
-    active: test
-  datasource:
-    url: jdbc:h2:mem:testdb
-  h2:
-    console:
-      enabled: true
-
-
+# log4jdbc.log4j2.properties에 설정해야 하는 값인데 YML 에 설정해도 안된다.
+#log4jdbc:
+#  spylogdelegator:
+#    name: net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
+#  dump:
+#    sql:
+#      maxlinelength: 0
+#  auto:
+#    load:
+#      popular:
+#        drivers: false
+#  drivers: com.mysql.cj.jdbc.Driver
