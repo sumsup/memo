@@ -49,6 +49,10 @@ dependencies {
 	compile 'org.fusesource.jansi:jansi:1.16'
 }
 
+bootJar {
+	mainClass = 'com.zetta.memo.MemoApplication'
+}
+
 test {
 	useJUnitPlatform()
 }
