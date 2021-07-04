@@ -4,7 +4,7 @@ spring:
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
     url: jdbc:log4jdbc:mysql://localhost:3306/map?autoReconnect=true
     username: root
-    password: mysql
+    password: 1234
     hikari:
       maximum-pool-size: 4
   # Spring static resource hot reload.
