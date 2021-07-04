@@ -37,7 +37,7 @@ window.onload = () => {
                 }
             }
         }
-        xhr.open('POST', 'http://localhost:8080/memo/register');
+        xhr.open('POST', 'http://220.76.63.77:8080/memo/register');
         xhr.setRequestHeader('Content-Type', 'application/json');
         let memo = $memoTextarea.value;
         memo = convertEnterToDiv(memo);
@@ -63,7 +63,7 @@ window.onload = () => {
                 }
             }
         }
-        xhr.open('POST', 'http://localhost:8080/memo/search');
+        xhr.open('POST', 'http://220.76.63.77:8080/memo/search');
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.responseType = 'json';
         let memo = $memoTextarea.value;
