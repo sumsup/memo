@@ -59,7 +59,7 @@ window.onload = () => {
                     showAllMemo(allMemo);
                 }
                 else {
-                    console.error(xhr.responseText);
+                    console.error(xhr.response);
                 }
             }
         }
