@@ -45,23 +45,3 @@ mybatis:
 
   # 패키지 명을 생략할 수 있도록 alias 설정.
   type-aliases-package: com.zetta.memo.page.memo
-
-# log level config.
-#logging:
-#  level:
-#    jdbc.sqlonly: DEBUG
-#    org.springframework.web: ERROR
-#    com.zaxxer.hikari.HikariDataSource: ERROR
-
-# log4jdbc.log4j2.properties에 설정해야 하는 값인데 YML 에 설정해도 안된다.
-#log4jdbc:
-#  spylogdelegator:
-#    name: net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
-#  dump:
-#    sql:
-#      maxlinelength: 0
-#  auto:
-#    load:
-#      popular:
-#        drivers: false
-#  drivers: com.mysql.cj.jdbc.Driver
