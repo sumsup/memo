@@ -25,3 +25,9 @@ label {
     height: 300px;
     resize: none;
 }
+
+.memo-del-btn {
+    display: inline-block;
+    position: relative;
+    left: 88%;
+}

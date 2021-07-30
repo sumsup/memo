@@ -6,7 +6,8 @@
 
     <select id="selectMemo" resultType="com.zetta.memo.page.memo.MemoDTO">
         select
-            writer_id
+            id
+            , writer_id
             , memo
             , category
             , created_at

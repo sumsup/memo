@@ -14,6 +14,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 // TODO : 리얼 환경에서 테스트 스키마 h2-console 띄우기.
 
@@ -42,7 +43,7 @@ public class MemoServiceTest {
 
         assertNotNull(memoList);
 
-        log.info("memoList : " + memoList.toString());
+        log.info("memoList : " + memoList);
     }
 
     @Test
@@ -54,7 +55,7 @@ public class MemoServiceTest {
         assertFalse(memoList.isEmpty());
         boolean isSuccess = memoMapper.deleteMemo(memoList.get(0).getId());
 
-        log.info("delete success ? => " + isSuccess);
+        assertTrue(isSuccess);
     }
 
     @Test
