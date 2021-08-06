@@ -18,8 +18,9 @@ public class MemoController {
     }
 
     @PostMapping("/register")
-    public boolean insertMemo(@RequestBody MemoDTO memoDTO) {
-        return memoService.insertMemo(memoDTO);
+    public long insertMemo(@RequestBody MemoDTO memoDTO) {
+        memoService.insertMemo(memoDTO);
+        return memoDTO.getId();
     }
 
     @PutMapping("/update/{id}")

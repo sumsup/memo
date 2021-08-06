@@ -15,8 +15,8 @@ public class MemoService {
         return memoMapper.selectMemo(search);
     }
 
-    public boolean insertMemo(MemoDTO memoDTO) {
-        return memoMapper.insertMemo(memoDTO);
+    public void insertMemo(MemoDTO memoDTO) {
+        memoMapper.insertMemo(memoDTO);
     }
 
     public boolean updateMemo(MemoDTO memoDTO) {

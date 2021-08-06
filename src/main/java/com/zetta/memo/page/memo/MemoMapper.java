@@ -7,7 +7,7 @@ import java.util.List;
 @Mapper
 public interface MemoMapper {
     List<MemoDTO> selectMemo(MemoDTO.Search search);
-    boolean insertMemo(MemoDTO memoDTO);
+    void insertMemo(MemoDTO memoDTO);
     boolean updateMemo(MemoDTO memoDTO);
     boolean deleteMemo(long id);
 }

@@ -9,8 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 public class MemoRepositoryTest {
@@ -26,9 +26,9 @@ public class MemoRepositoryTest {
         memo.setWriterId(1);
         memo.setMemo("insert 테스트 입니다.");
 
-        boolean insertResult = memoMapper.insertMemo(memo);
+        memoMapper.insertMemo(memo);
 
-        assertTrue(insertResult);
+        assertNotNull(memo.getId());
 
         MemoDTO.Search search = new MemoDTO.Search();
         List<MemoDTO> memoList = memoMapper.selectMemo(search);
@@ -43,20 +43,17 @@ public class MemoRepositoryTest {
         memo.setWriterId(1);
         memo.setMemo("insert 테스트 입니다.");
 
-        boolean insertResult = memoMapper.insertMemo(memo);
+        memoMapper.insertMemo(memo);
 
-        assertTrue(insertResult);
+        assertNotNull(memo.getId());
 
         MemoDTO.Search search = new MemoDTO.Search();
         search.setMemo("테스트");
 
         List<MemoDTO> list = memoMapper.selectMemo(search);
 
-        list.stream().forEach(dto -> {
-            assertThat(dto.getMemo()).contains("테스트");
-        });
+        list.stream().forEach(dto -> assertThat(dto.getMemo()).contains("테스트"));
 
     }
-
 
 }
