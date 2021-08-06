@@ -16,7 +16,7 @@ window.onload = () => {
             memo = convertEnterToDiv($memoTextarea.value);
         }
         document.querySelector('#memo-output').insertAdjacentHTML('afterbegin', '<div class="memo-item"><div '
-        + 'class="memo-contents">' + memo + '</div><div class="memo-del-div"><button id="' 
+        + 'class="memo-contents">' + memo + '</div><div class="memo-del-div"><button id="memo-num-' 
         + memoId + '" class="memo-del-btn">삭제</button></div></div>');
 
         $memoTextarea.value = '';
@@ -33,8 +33,8 @@ window.onload = () => {
         xhr.onreadystatechange = function() {
             if (xhr.readyState === xhr.DONE) {
                 if (xhr.status === 200 || xhr.status === 201) {
-                    console.log(xhr.responseText);
-                    outputMemo(null, 'register');
+                    const registeredMemoId = xhr.responseText;
+                    outputMemo(null, 'register', registeredMemoId);
                 }
                 else {
                     console.error(xhr.responseText);
@@ -85,13 +85,13 @@ window.onload = () => {
         if (event.target.getAttribute('class') !== 'memo-del-btn') {
             return;
         }
-        var memoId = event.target.getAttribute('id');
+        const memoId = event.target.getAttribute('id').replace('memo-num-','');
 
         const xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
             if (xhr.readyState === xhr.DONE) {
                 if (xhr.status === 200 || xhr.status === 201) {
-                    selectMemo();
+                    deleteMemoFromDOM(memoId);
                 }
                 else {
                     console.error(xhr.response);
@@ -101,6 +101,11 @@ window.onload = () => {
         xhr.open('DELETE', HOST_ADDRESS + '/memo/delete/' + memoId);
         // xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send();
+    }
+
+    function deleteMemoFromDOM(memoId) {
+        // DOM에서 memo id에 해당하는 요소를 기준으로 첫번째 .memo-item 요소를 가져온다.
+        var $memoItemElem = document.querySelector('#memo-num-' + memoId).closest('.memo-item').remove();
     }
 
 }
