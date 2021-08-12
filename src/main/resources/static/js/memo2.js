@@ -122,9 +122,9 @@ window.onload = () => {
         xhr.send();
     }
 
-    var commonXHR = function(method) {
-        let method;
-        let api;
-      };
+    // var commonXHR = function(method) {
+    //     let method;
+    //     let api;
+    //   };
 
 }
