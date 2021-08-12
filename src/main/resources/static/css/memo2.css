@@ -31,3 +31,22 @@ label {
     position: relative;
     left: 88%;
 }
+
+/* 반응형. 크기가 테블릿 폰 이하면. width 를 100%로 해야겠다. */
+@media (max-width: 768px) {
+    * {
+        font-size: 30px;
+    }
+
+    #memo-ta {
+        width: 100%;
+    }
+
+    #memo-output .memo-item {
+        width: 100%;
+    }
+
+    div#main-container #submit-memo {
+        
+    }
+}

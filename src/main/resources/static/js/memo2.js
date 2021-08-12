@@ -1,15 +1,22 @@
 window.onload = () => {
-    document.querySelector('#memo-ta').focus();
 
-    // const HOST_ADDRESS = "http://localhost:8080";
-    const HOST_ADDRESS = "http://220.76.63.77:8080";
+    const HOST_ADDRESS = "http://localhost:8080";
+    // const HOST_ADDRESS = "http://220.76.63.77:8080";
     const $memoTextarea = document.querySelector('#memo-ta');
 
-    document.querySelector('#submit-memo').addEventListener('click', registerMemo);
-    // 이벤트 위임. 클래스에 이벤트를 바인딩 하려면, 상위요소에 리스너를 걸고. event 객체에서 눌려진 요소를 찾아서 작업.
-    document.querySelector('#memo-output').addEventListener('click', deleteMemo);
+    memoStarter(); // 진입점.
 
-    selectMemo();
+    function memoStarter() {
+        document.querySelector('#memo-ta').focus();
+        eventListeners();
+        selectMemo();
+    }
+
+    function eventListeners() {
+        document.querySelector('#submit-memo').addEventListener('click', registerMemo);
+        // 이벤트 위임. 클래스에 이벤트를 바인딩 하려면, 상위요소에 리스너를 걸고. event 객체에서 눌려진 요소를 찾아서 작업.
+        document.querySelector('#memo-output').addEventListener('click', deleteMemo);
+    }
 
     function outputMemo(memo, outType, memoId) {
         if (outType === 'register') {
@@ -29,6 +36,11 @@ window.onload = () => {
     }
 
     function registerMemo() {
+
+        // 전달할 파라미터에 map으로 변수를 담아야 함.
+        // 이렇게 파라미터로 전달하는 형식 말고. 빌더 패턴으로 원하는 값들 설정하도록 구현해 보자.
+        // commonXHR('POST', '/memo/register', outputMemo, );
+
         const xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
             if (xhr.readyState === xhr.DONE) {
@@ -81,31 +93,38 @@ window.onload = () => {
     }
 
     function deleteMemo() {
-        console.log("event target : " + event.target.get);
         if (event.target.getAttribute('class') !== 'memo-del-btn') {
             return;
         }
         const memoId = event.target.getAttribute('id').replace('memo-num-','');
 
+        commonXHR('DELETE', '/memo/delete/', deleteMemoFromDOM, memoId);
+    }
+
+    function deleteMemoFromDOM(memoId) {
+        // DOM에서 memo id에 해당하는 요소를 기준으로 첫번째 .memo-item 요소를 가져온다. 삭제한다.
+        var $memoItemElem = document.querySelector('#memo-num-' + memoId).closest('.memo-item').remove();
+    }
+
+    function commonXHR(method, api, callbackFunction, param) {
         const xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
             if (xhr.readyState === xhr.DONE) {
                 if (xhr.status === 200 || xhr.status === 201) {
-                    deleteMemoFromDOM(memoId);
+                    callbackFunction(param);
                 }
                 else {
                     console.error(xhr.response);
                 }
             }
         }
-        xhr.open('DELETE', HOST_ADDRESS + '/memo/delete/' + memoId);
-        // xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.open(method, HOST_ADDRESS + api + param);
         xhr.send();
     }
 
-    function deleteMemoFromDOM(memoId) {
-        // DOM에서 memo id에 해당하는 요소를 기준으로 첫번째 .memo-item 요소를 가져온다.
-        var $memoItemElem = document.querySelector('#memo-num-' + memoId).closest('.memo-item').remove();
-    }
+    // var commonXHR = function(method) {
+    //     let method;
+    //     let api;
+    //   };
 
 }
