@@ -1,7 +1,7 @@
 window.onload = () => {
 
-    const HOST_ADDRESS = "http://localhost:8080";
-    // const HOST_ADDRESS = "http://220.76.63.77:8080";
+    // const HOST_ADDRESS = "http://localhost:8080";
+    const HOST_ADDRESS = "http://220.76.63.77:8080";
     const $memoTextarea = document.querySelector('#memo-ta');
 
     memoStarter(); // 진입점.
