@@ -92,6 +92,7 @@ window.onload = () => {
         }
     }
 
+    // 서버에서 메모를 삭제.
     function deleteMemo() {
         if (event.target.getAttribute('class') !== 'memo-del-btn') {
             return;
@@ -106,6 +107,7 @@ window.onload = () => {
         var $memoItemElem = document.querySelector('#memo-num-' + memoId).closest('.memo-item').remove();
     }
 
+    // XHR 공통화. TODO content type 이나 response type 어떻게 받을지. 빌더 패턴으로 만들어 볼지.
     function commonXHR(method, api, callbackFunction, param) {
         const xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
