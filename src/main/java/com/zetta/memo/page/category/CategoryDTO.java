@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @ToString
 public class CategoryDTO {
     private int id;
-    private int writerId;
+    private int memberId;
     private String category;
     private LocalDateTime createdAt;
 }

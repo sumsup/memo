@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @ToString
 public class MemoDTO {
     private long id;
-    private int writerId;
+    private int memberId;
     private String memo;
     private String category;
     private LocalDateTime createdAt;

@@ -1,4 +1,4 @@
-package com.zetta.memo.page.writer;
+package com.zetta.memo.page.member;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -10,12 +10,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 @Slf4j
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class WriterServiceTest {
+public class MemberServiceTest {
     @Autowired
-    private WriterMapper writerMapper;
+    private MemberMapper memberMapper;
 
     @Test
     public void getWritersTest() {
-        log.info("search writers : " + writerMapper.getWriters().toString());
+        log.info("search writers : " + memberMapper.getWriters().toString());
     }
 }

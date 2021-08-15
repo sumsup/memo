@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.zetta.memo.page.writer.WriterMapper">
-    <select id="getWriters" resultType="com.zetta.memo.page.writer.WriterDTO">
+<mapper namespace="com.zetta.memo.page.member.MemberMapper">
+    <select id="getWriters" resultType="com.zetta.memo.page.member.MemberDTO">
         select * from writer;
     </select>
 
@@ -11,20 +11,20 @@
         insert into writer
             (
             email
-            , nickname
             , password
-            , sex
+            , nickname
+            , phone_number
+            , status
             , join_at
-            , birthday
             )
             values
             (
             #{email}
-            , #{nickname}
             , #{password}
-            , #{sex}
-            , #{joinAt}
-            , #{birthday}
+            , #{nickname}
+            , #{phone_number}
+            , #{status}
+            , now()
             )
     </insert>
 
@@ -34,18 +34,12 @@
         set
             email = #{email}
             , password = #{password}
-            , NiCkNaMe = #{nickname}
-            , sex = #{sex}
-            , birthday = #{birthday}
+            , nickname = #{nickname}
+            , phone_number = #{phoneNumber}
+            , status = #{status}
+            , update_at = #{updateAt}
         where
             id = #{id}
     </update>
-
-    <delete id="delete">
-        delete
-            from writer
-        where
-            id = #{id}
-    </delete>
 
 </mapper>

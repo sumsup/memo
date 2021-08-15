@@ -7,7 +7,7 @@
     <select id="selectMemo" resultType="com.zetta.memo.page.memo.MemoDTO">
         select
             id
-            , writer_id
+            , member_id
             , memo
             , category
             , created_at
@@ -22,14 +22,14 @@
         insert into memo
             (
                 id
-                , writer_id
+                , member_id
                 , memo
                 , category
             )
             values
             (
                 #{id}
-                , #{writerId}
+                , #{memberId}
                 , #{memo}
                 , #{category}
             )

@@ -25,3 +25,7 @@ values ('starirof@naver.com', 'dpqk13', '구름빵', '01095962356', 'active' , n
 
 alter table category add constraint category_member_id_fk foreign key (member_id) references member(id);
 alter table memo add constraint memo_member_id_fk foreign key (member_id) references member(id);
+
+alter table member add update_at datetime default '9999-12-31 23:59:59' not null after join_at;
+alter table member modify join_at datetime default now() not null;
+alter table member modify exit_at datetime default '9999-12-31 23:59:59' not null;

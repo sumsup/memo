@@ -23,7 +23,7 @@ public class MemoRepositoryTest {
     @DisplayName("insert memo test")
     void insertTest() {
         MemoDTO memo = new MemoDTO();
-        memo.setWriterId(1);
+        memo.setMemberId(1);
         memo.setMemo("insert 테스트 입니다.");
 
         memoMapper.insertMemo(memo);
@@ -40,7 +40,7 @@ public class MemoRepositoryTest {
     @Transactional
     void searchConditionTest() {
         MemoDTO memo = new MemoDTO();
-        memo.setWriterId(1);
+        memo.setMemberId(1);
         memo.setMemo("insert 테스트 입니다.");
 
         memoMapper.insertMemo(memo);
