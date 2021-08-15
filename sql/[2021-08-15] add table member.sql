@@ -15,7 +15,7 @@ create table member (
     primary key(id)
 );
 
-alter table category change member_id member_id int(11) unsigned not null;
+alter table category change writer_id member_id int(11) unsigned not null;
 alter table memo change writer_id member_id int(11) unsigned;
 
 -- truncate category;
