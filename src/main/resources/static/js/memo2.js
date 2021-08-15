@@ -61,7 +61,7 @@ window.onload = () => {
     }
 
     function jsonParser(memo) {
-        let parsedJson = '{ "writerId" : 1,' +
+        let parsedJson = '{ "memberId" : 1,' +
             '"memo": "' + memo + '"}';
         return parsedJson;
     }

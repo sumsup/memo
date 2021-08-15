@@ -18,7 +18,7 @@ create table member (
 alter table category change member_id member_id int(11) unsigned not null;
 alter table memo change writer_id member_id int(11) unsigned;
 
-truncate category;
+-- truncate category;
 
 insert into member (email, password, nickname, phone_number, status, join_at)
 values ('starirof@naver.com', 'dpqk13', '구름빵', '01095962356', 'active' , now());
