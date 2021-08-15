@@ -19,6 +19,7 @@ public class MemoDTO {
     @Data
     public static class Search {
         private String memo;
+        private long id;
     }
 }
 

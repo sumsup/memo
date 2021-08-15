@@ -19,7 +19,6 @@ public class MemoRepositoryTest {
     MemoMapper memoMapper;
 
     @Test
-    @Transactional
     @DisplayName("insert memo test")
     void insertTest() {
         MemoDTO memo = new MemoDTO();
@@ -31,13 +30,14 @@ public class MemoRepositoryTest {
         assertNotNull(memo.getId());
 
         MemoDTO.Search search = new MemoDTO.Search();
+        search.setId(memo.getId());
         List<MemoDTO> memoList = memoMapper.selectMemo(search);
-        assertEquals(memo.getMemo(), memoList.get(1).getMemo());
+
+        assertEquals(memo.getMemo(), memoList.get(0).getMemo());
     }
 
     @Test
     @DisplayName("search condition is activate")
-    @Transactional
     void searchConditionTest() {
         MemoDTO memo = new MemoDTO();
         memo.setMemberId(1);
@@ -53,7 +53,6 @@ public class MemoRepositoryTest {
         List<MemoDTO> list = memoMapper.selectMemo(search);
 
         list.stream().forEach(dto -> assertThat(dto.getMemo()).contains("테스트"));
-
     }
 
 }

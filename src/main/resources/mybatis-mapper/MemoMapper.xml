@@ -13,23 +13,27 @@
             , created_at
             , updated_at
         from memo
+        <where>
         <if test="memo != null">
-            where memo like concat('%', #{memo} ,'%')
+            and memo like concat('%', #{memo} ,'%')
         </if>
+        <if test="id != null &amp;&amp; id != 0">
+            and id = #{id}
+        </if>
+        </where>
+
     </select>
 
     <insert id="insertMemo" useGeneratedKeys="true" keyProperty="id">
         insert into memo
             (
-                id
-                , member_id
+                member_id
                 , memo
                 , category
             )
             values
             (
-                #{id}
-                , #{memberId}
+                #{memberId}
                 , #{memo}
                 , #{category}
             )
