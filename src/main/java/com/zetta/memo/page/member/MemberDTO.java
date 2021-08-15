@@ -1,4 +1,4 @@
-package com.zetta.memo.page.writer;
+package com.zetta.memo.page.member;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,12 +9,14 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-public class WriterDTO {
+public class MemberDTO {
     private int id;
-    private String password;
     private String email;
+    private String password;
     private String nickname;
-    private String sex;
+    private String phoneNumber;
+    private String status;
     private LocalDateTime joinAt;
-    private String birthday;
+    private LocalDateTime updateAt;
+    private LocalDateTime exitAt;
 }
