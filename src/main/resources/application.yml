@@ -2,7 +2,7 @@ spring:
   # Database connection setting.
   datasource:
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-    url: jdbc:log4jdbc:mysql://220.76.63.77:3306/map?autoReconnect=true
+    url: jdbc:log4jdbc:mysql://218.153.171.34:3306/map?autoReconnect=true
     username: root
     password: 1234
     hikari:
