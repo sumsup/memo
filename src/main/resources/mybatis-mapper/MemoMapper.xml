@@ -14,12 +14,12 @@
             , updated_at
         from memo
         <where>
-        <if test="memo != null">
-            and memo like concat('%', #{memo} ,'%')
-        </if>
-        <if test="id != null &amp;&amp; id != 0">
-            and id = #{id}
-        </if>
+            <if test="memo != null">
+                and memo like concat('%', #{memo} ,'%')
+            </if>
+            <if test="id != null &amp;&amp; id != 0">
+                and id = #{id}
+            </if>
         </where>
 
     </select>
