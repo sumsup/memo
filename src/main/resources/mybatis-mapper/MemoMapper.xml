@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.zetta.memo.page.memo.MemoMapper">
 
@@ -37,6 +36,15 @@
                 , #{memo}
                 , #{category}
             )
+    </insert>
+    
+    <insert id="insertMemoBatch" parameterType="java.util.List" useGeneratedKeys="true">
+        insert into memo
+            (member_id, memo, category)
+        values 
+            <foreach collection="list" item="member" separator=",">
+                (#{member.memberId}, #{member.memo}, #{member.category})
+            </foreach>
     </insert>
 
     <update id="updateMemo">

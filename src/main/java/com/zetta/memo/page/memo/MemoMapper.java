@@ -8,6 +8,7 @@ import java.util.List;
 public interface MemoMapper {
     List<MemoDTO> selectMemo(MemoDTO.Search search);
     void insertMemo(MemoDTO memoDTO);
+    void insertMemoBatch(List<MemoDTO> memberList);
     boolean updateMemo(MemoDTO memoDTO);
     boolean deleteMemo(long id);
 }
